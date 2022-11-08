@@ -52,9 +52,14 @@ REPO="${HOME}/Repos/linux_config"
 REPO_CFG="${REPO}/.config"
 HOME_CFG="${HOME}/.config"
 
-ln -s ${REPO_CFG}/i3 ${HOME_CFG}/i3
-ln -s ${REPO_CFG}/kitty ${HOME_CFG}/kitty
-ln -s ${REPO_CFG}/nvim ${HOME_CFG}/nvim
+rm -rf ${HOME_CFG}/i3
+ln -sf ${REPO_CFG}/i3 ${HOME_CFG}/i3
 
-ln -s ${REPO}/.bashrc ${HOME}/.bashrc
-ln -s ${REPO_CFG}/nvim/init.vim ${HOME}/.vimrc
+rm -rf ${HOME_CFG}/kitty
+ln -sf ${REPO_CFG}/kitty ${HOME_CFG}/kitty
+
+rm -rf ${HOME_CFG}/nvim
+ln -sf ${REPO_CFG}/nvim ${HOME_CFG}/nvim
+
+ln -sf ${REPO}/.bashrc ${HOME}/.bashrc
+ln -sf ${REPO_CFG}/nvim/init.vim ${HOME}/.vimrc

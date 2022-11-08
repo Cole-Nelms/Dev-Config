@@ -1,24 +1,19 @@
 # ~/.bashrc
-#
-# terminal colors
+
 use_color=ture
 force_color_prompt=yes
 
-# system variables
 export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export FZF_DEFAULT_COMMAND="find -L"
 
-# escape colors
 LIGHT_BLUE="\e[1;34m"
 LIGHT_GRAY="\e[0;37m"
 END="\e[m"
 
-# PS1
 PS1="${LIGHT_GRAY}---${END} ${LIGHT_BLUE}\u${END} ${LIGHT_GRAY}\w${END}\n${LIGHT_GRAY}-----${END} "
 
-# aliases
 alias ls='ls --color=auto'
 alias ll='ls -l'
 alias la='ls -a'

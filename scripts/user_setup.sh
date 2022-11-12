@@ -13,6 +13,11 @@
 
 #!/bin/bash
 
+# X configuration file.
+#----------------------------------------------------------------------
+
+echo "exec i3" > ~/.xinitrc
+
 # Install Neovim.
 #----------------------------------------------------------------------
 
@@ -42,7 +47,7 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
 
-# Install configuration repository, and copy it into home directory.
+# Install configuration repository, and symlink it into home directory.
 #----------------------------------------------------------------------
 
 mkdir --parent ~/.config ~/Repos && cd ~/Repos

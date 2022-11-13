@@ -3,7 +3,7 @@
 #----------------------------------------------------------------------
 #
 #  This script upgrades debian to unstable,
-#  installs packages.
+#  installs packages, and configures the system.
 #
 #  Just run with no arguments. Make sure
 #  to run as root or with sudo, since this is
@@ -13,6 +13,11 @@
 
 
 #!/bin/bash
+
+# Get repository directory.
+#----------------------------------------------------------------------
+
+REPO=$(dirname $0) && cd ${REPO} && cd .. && REPO=$(pwd)
 
 # Update apt sources to unstable, and install packages.
 #----------------------------------------------------------------------
@@ -35,6 +40,8 @@ PACKAGES=(
   "curl"
   "vim"
   "git"
+  "man-db"
+  "fuse"
 
   "xinit"
   "i3"
@@ -47,3 +54,17 @@ PACKAGES=(
 for i in ${!PACKAGES[@]}; do
   apt install ${PACKAGES[$i]} -y
 done
+
+# Configure system.
+#----------------------------------------------------------------------
+
+link () {
+  local DIR=$(dirname ${2})
+  mkdir --parent ${DIR} && rm -rf ${2}
+
+  chmod 644 ${1}
+  ln -sf ${1} ${2}
+}
+
+link ${REPO}/sys/grub /etc/default/grub
+update-grub

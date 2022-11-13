@@ -9,12 +9,9 @@
 # accepts a path to a media
 # drive, (example: '/dev/sda').
 # It will overwrite all drive data
-# with a new bootable dos/mbr
-# operating system by writing the
+# with a new bootable operating
+# system by writing the
 # image file to the drive.
-# Make sure that your image
-# file has a mbr boot sector
-# already setup.
 
 #!/bin/sh
 

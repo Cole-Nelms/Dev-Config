@@ -3,10 +3,10 @@
 use_color=ture
 force_color_prompt=yes
 
-export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export FZF_DEFAULT_COMMAND="find -L"
+export TERM=xterm-256color
 
 LIGHT_BLUE="\e[1;34m"
 LIGHT_GRAY="\e[0;37m"
@@ -26,6 +26,7 @@ alias egrep='egrep --color=auto'
 alias rs='rsync -aAXH'
 alias nnn='nnn -dCH'
 alias bashrc='source ~/.bashrc'
+#alias nvim='nvim --appimage-extract-and-run'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

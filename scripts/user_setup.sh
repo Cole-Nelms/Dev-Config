@@ -13,18 +13,19 @@
 
 #!/bin/bash
 
-# X configuration file.
+# Get repository directory.
 #----------------------------------------------------------------------
 
-echo "exec i3" > ~/.xinitrc
+REPO=$(dirname $0) && cd ${REPO} && cd .. && REPO=$(pwd)
 
 # Install Neovim.
 #----------------------------------------------------------------------
 
 LOCAL_BIN="${HOME}/.local/bin"
+NEOVIM_URL="https://github.com/neovim/neovim/releases/download/v0.8.0/nvim.appimage"
 
 mkdir --parent ${LOCAL_BIN}
-curl -L https://github.com/neovim/neovim/releases/download/v0.8.0/nvim.appimage > ${LOCAL_BIN}/nvim
+curl --location --output ${LOCAL_BIN}/nvim ${NEOVIM_URL}
 chmod 770 ${LOCAL_BIN}/nvim
 
 # Install vim-plug for Vim/NeoVim.
@@ -47,24 +48,20 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
 
-# Install configuration repository, and symlink it into home directory.
+# Symlink repository into home directory.
 #----------------------------------------------------------------------
 
-mkdir --parent ~/.config ~/Repos && cd ~/Repos
-git clone https://github.com/Cole-Nelms/linux_config.git
+link () {
+  local DIR=$(dirname ${2})
 
-REPO="${HOME}/Repos/linux_config"
-REPO_CFG="${REPO}/.config"
-HOME_CFG="${HOME}/.config"
+  mkdir --parent ${DIR} && rm -rf ${2}
+  ln --symbolic --force ${1} ${2}
+}
+ 
+link ${REPO}/user/.bashrc       ${HOME}/.bashrc
+link ${REPO}/user/nvim/init.vim ${HOME}/.vimrc
+link ${REPO}/user/.xinitrc      ${HOME}/.xinitrc
 
-rm -rf ${HOME_CFG}/i3
-ln -sf ${REPO_CFG}/i3 ${HOME_CFG}/i3
-
-rm -rf ${HOME_CFG}/kitty
-ln -sf ${REPO_CFG}/kitty ${HOME_CFG}/kitty
-
-rm -rf ${HOME_CFG}/nvim
-ln -sf ${REPO_CFG}/nvim ${HOME_CFG}/nvim
-
-ln -sf ${REPO}/.bashrc ${HOME}/.bashrc
-ln -sf ${REPO_CFG}/nvim/init.vim ${HOME}/.vimrc
+link ${REPO}/user/i3            ${HOME}/.config/i3
+link ${REPO}/user/kitty         ${HOME}/.config/kitty
+link ${REPO}/user/nvim          ${HOME}/.config/nvim

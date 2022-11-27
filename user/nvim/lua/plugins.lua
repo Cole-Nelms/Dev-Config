@@ -65,7 +65,7 @@ require('mason').setup {
 require('mason-lspconfig').setup {}
 
 local lsp_servers = { 'sumneko_lua', 'pyright', 'clangd' }
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 for _, lsp in ipairs(lsp_servers) do
   require('lspconfig')[lsp].setup { capabilities = capabilities }

@@ -22,11 +22,11 @@ alias lla='ls -la'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+alias less='less --use-color'
 
 alias rs='rsync -aAXH'
 alias nnn='nnn -dCH'
 alias bashrc='source ~/.bashrc'
-#alias nvim='nvim --appimage-extract-and-run'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

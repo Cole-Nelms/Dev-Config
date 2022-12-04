@@ -27,6 +27,7 @@ alias less='less --use-color'
 alias rs='rsync -aAXH'
 alias nnn='nnn -dCH'
 alias bashrc='source ~/.bashrc'
+alias lstime='date "+%I:%M%P"'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

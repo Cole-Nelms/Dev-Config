@@ -1,1 +1,1 @@
-exec i3
+exec /opt/i3-gaps/build/i3

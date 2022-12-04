@@ -46,12 +46,12 @@ call plug#begin()
   Plug 'gosukiwi/vim-smartpairs' " auto pairs
   Plug 'junegunn/fzf.vim'        " fuzzy finder
   Plug 'Yggdroot/indentLine'     " indent lines
-  Plug 'lifepillar/vim-gruvbox8' " theme
+  Plug 'ayu-theme/ayu-vim'       " theme
 
 call plug#end()
 
-set background=dark
-colorscheme gruvbox8
+let ayucolor="mirage"
+colorscheme ayu
 
 " menus
 :nmap <leader>m; :PlugInstall<CR>

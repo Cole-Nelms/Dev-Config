@@ -3,6 +3,9 @@
 # Modifier key(left alt)
 set $mod Mod1
 
+# Set defualt layout
+workspace_layout tabbed
+
 # Walpaper
 exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/woods.jpg
 
@@ -15,11 +18,14 @@ default_border          pixel 1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. The 'pango:DejaVu Sans Mono 8' font
-# is popular aswell.
 font pango:monospace 0
+# is popular aswell.
 
 # Kill focused window
 bindsym $mod+F4 kill
+
+# Quit i3wm
+bindsym $mod+Control+Escape exec --no-startup-id ps -aux | grep i3 | grep tty | awk '{print $2}' | xargs kill
 
 # Window menus
 bindsym Super_L exec rofi -show run
@@ -29,6 +35,9 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+
+bindsym $mod+Tab       focus right
+bindsym $mod+Shift+Tab focus left
 
 # Move windows
 bindsym $mod+Left  move left

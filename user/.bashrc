@@ -25,9 +25,9 @@ alias egrep='egrep --color=auto'
 alias less='less --use-color'
 
 alias rs='rsync -aAXH'
-alias nnn='nnn -dCH'
 alias bashrc='source ~/.bashrc'
 alias lstime='date "+%I:%M%P"'
+alias npm_server='npm run start 1> /dev/null 2>> /tmp/npm_debug_server &'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

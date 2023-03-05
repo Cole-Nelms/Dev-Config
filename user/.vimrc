@@ -43,11 +43,21 @@ set smarttab                     " set tabs to adapt to other options
 set autoindent                   " indent the same amount as previous line
 set nosmartindent                " indents the right amount in more contexts
 
+" navigate quickfix
+:nmap <C-j> :cn<CR>
+:nmap <C-k> :cp<CR>
+
+" navigate buffers
+:nmap <C-h> :bn<CR>
+:nmap <C-l> :bp<CR>
+
+" plugins
 call plug#begin()
 
     Plug 'ayu-theme/ayu-vim'
     Plug 'jiangmiao/auto-pairs'
     Plug 'Yggdroot/indentLine'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -58,10 +68,5 @@ colorscheme ayu
 " indent plugin
 let g:indentLine_char = '|'
 
-" navigate quickfix
-:nmap <C-j> :cn<CR>
-:nmap <C-k> :cp<CR>
-
-" navigate buffers
-:nmap <C-h> :bn<CR>
-:nmap <C-l> :bp<CR>
+" language extensions
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-rust-analyzer']

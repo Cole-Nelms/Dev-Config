@@ -102,6 +102,7 @@ link ${REPO}/user/i3         ${HOME}/.config/i3
 link ${REPO}/user/rofi       ${HOME}/.config/rofi
 link ${REPO}/user/polybar    ${HOME}/.config/polybar
 link ${REPO}/user/kitty      ${HOME}/.config/kitty
+link ${REPO}/user/alacritty  ${HOME}/.config/alacritty
 
 # install Ansible
 python3 -m pip install --user ansible 
@@ -115,6 +116,10 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
 
 . ~/.bashrc
 nvm install node
+
+# install rust toolchain
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+cargo install cargo-watch alacritty bottom
 
 # cleanup generated files
 rm sys.sh utils.sh

@@ -5,6 +5,7 @@ let mapleader = ' '              " leader key
 set encoding=utf-8               " set encoding
 set clipboard=unnamedplus        " Plug system clipboard
 set mouse=a                      " enable mouse
+set backspace=indent,eol,start   " backspacing
 
 set showcmd                      " show normal mode cammand before executing
 set nohidden                     " set if buffers are hidden
@@ -41,6 +42,21 @@ set breakindent                  " indent wraped lines relative to original
 set smarttab                     " set tabs to adapt to other options
 set autoindent                   " indent the same amount as previous line
 set nosmartindent                " indents the right amount in more contexts
+
+call plug#begin()
+
+    Plug 'ayu-theme/ayu-vim'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'Yggdroot/indentLine'
+
+call plug#end()
+
+" colorscheme
+let ayucolor="mirage" " for mirage version of theme
+colorscheme ayu
+
+" indent plugin
+let g:indentLine_char = '|'
 
 " navigate quickfix
 :nmap <C-j> :cn<CR>

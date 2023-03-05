@@ -10,7 +10,7 @@ workspace_layout tabbed
 exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/woods.jpg
 
 # Bar
-exec --no-startup-id custom_polybar
+exec --no-startup-id sh /usr/local/bin/start_polybar.sh
 
 # Border
 default_floating_border pixel 1

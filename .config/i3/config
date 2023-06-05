@@ -1,4 +1,4 @@
-# i3-wm configuration file
+# i3wm configuration file
 
 # Modifier key(left alt)
 set $mod Mod1
@@ -9,17 +9,13 @@ workspace_layout tabbed
 # Walpaper
 exec --no-startup-id feh --bg-scale ~/Pictures/woods.jpg
 
-# Bar
-exec --no-startup-id bash ~/scripts/start_polybar.sh
-
 # Border
 default_floating_border pixel 1
 default_border pixel 1
 
 # Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below. The 'pango:DejaVu Sans Mono 8' font
+# is used in the bar {} block below. The 'pango:DejaVu Sans Mono 8' font is popular aswell.
 font pango:monospace 0
-# is popular aswell.
 
 # Kill focused window
 bindsym $mod+F4 kill
@@ -27,8 +23,8 @@ bindsym $mod+F4 kill
 # Quit i3wm
 bindsym $mod+Control+Escape exec --no-startup-id ps -aux | grep i3 | grep tty | awk '{print $2}' | xargs kill
 
-# Window menus
-bindsym Super_L exec rofi -show run
+# Open alacritty
+bindsym Super_L exec alacritty
 
 # Change focus
 bindsym $mod+h focus left
@@ -105,7 +101,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-# Restart/reload the i3
+# Restart/reload i3
 bindsym $mod+Shift+Return restart
 
 # Border colors

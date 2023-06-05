@@ -4,16 +4,16 @@
 use_color=ture
 force_color_prompt=yes
 
-# Editor
-export VISUAL=hx
-export EDITOR="$VISUAL"
-export TERM=xterm-256color
-
 # Terminal prompt
 LIGHT_BLUE="\e[1;34m"
 LIGHT_GRAY="\e[0;37m"
 END="\e[m"
 PS1="${LIGHT_GRAY}---${END} ${LIGHT_BLUE}\A${END} ${LIGHT_GRAY}\w${END}\n${LIGHT_GRAY}-----${END} "
+
+# Exports
+export VISUAL=hx
+export EDITOR="$VISUAL"
+export TERM=xterm-256color
 
 # Aliases
 alias ls='ls --color=auto'

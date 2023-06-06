@@ -16,7 +16,7 @@ export EDITOR="$VISUAL"
 export TERM=xterm-256color
 
 # Aliases
-alias ls='ls --color=auto'
+alias ls='exa'
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
@@ -28,3 +28,9 @@ alias less='less --use-color'
 
 alias bashrc='source ~/.bashrc'
 alias lstime='date "+%I:%M%P"'
+alias gui='startx &> ~/.xsession.log'
+
+run () {
+  ${1} &>> ~/.xsession.log &
+  disown
+}

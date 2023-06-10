@@ -33,4 +33,6 @@ alias gui='startx &> ~/.xsession.log'
 run () {
   ${1} &>> ~/.xsession.log &
   disown
+  clear
 }
+. "$HOME/.cargo/env"
